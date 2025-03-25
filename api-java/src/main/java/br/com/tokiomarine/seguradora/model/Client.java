@@ -13,8 +13,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
-@Table(name = "clientss")
+@Table(name = "clients")
 public class Client {
 
 	@Id
@@ -37,6 +39,7 @@ public class Client {
 	private String email;
 
 	@OneToMany(mappedBy = "createdBy", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties({"createdBy"})
 	private List<Address> addresses;
 
 	public Client() {

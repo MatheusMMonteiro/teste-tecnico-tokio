@@ -1,0 +1,42 @@
+.panel-default {
+    margin: 20px 0;
+
+}
+.c-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    padding: 0 10px;
+}
+
+.c-items{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    > div {
+        border: 1px solid #DDDDDD;
+        padding: 10px 0 ;
+        border-radius: 5px;
+        width: 400px;
+
+        p {
+            padding : 0 5px;
+            border-bottom: 1px solid #DDDDDD;
+        }
+
+    }
+}
+
+summary {
+    display: list-item; /* Garante que a seta seja exibida */
+    cursor: pointer;
+    padding : 0 5px;
+  }
+
+  .address{
+    div {
+        padding: 10px;
+
+    }
+  }

@@ -1,3 +1,10 @@
 <div>
-    <h1>Welcome</h1>
+    <h1>Clientes</h1>
+    <div class="c-buttons">
+        <button *ngIf="!isCreate" type="button" class="btn btn-primary" (click)="onCreate()">Criar Cliente</button>
+        <button *ngIf="isCreate" type="button" class="btn btn-secondary" (click)="onCreate()">Fechar Formulário</button>
+
+    </div>
+      <app-client-list></app-client-list>
+    <app-client-create *ngIf="isCreate"></app-client-create>
 </div>

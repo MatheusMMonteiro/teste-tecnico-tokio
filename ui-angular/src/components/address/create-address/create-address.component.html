@@ -1,0 +1,97 @@
+<h5>Cadastrar Endereço</h5>
+<div class="c-create-inputs">
+  <div>
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Informe o CEP"
+        [(ngModel)]="postalCode"
+      />
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" (click)="searchCep()">
+          Buscar
+        </button>
+      </span>
+    </div>
+  </div>
+  <div class="input-group m-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Número"
+      [(ngModel)]="number"
+    />
+  </div>
+
+  <div class="input-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Complemento"
+      [(ngModel)]="complement"
+    />
+  </div>
+
+  <div class="input-group mt-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Endereço"
+      disabled
+      [(ngModel)]="address"
+    />
+    <div *ngIf="addressError" class="invalid-feedback">
+      Endereço é obrigatório.
+    </div>
+  </div>
+
+  <div class="input-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Cidade"
+      disabled
+      [(ngModel)]="city"
+    />
+  </div>
+
+  <div class="input-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Estado"
+      disabled
+      [(ngModel)]="state"
+    />
+  </div>
+
+  <div class="input-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="País"
+      disabled
+      [(ngModel)]="country"
+    />
+  </div>
+
+  <div class="btn-group mt-3">
+    <button type="button" class="btn btn-primary" (click)="saveAddress()">
+      Salvar
+    </button>
+    <button type="button" class="btn btn-secondary" (click)="cancel()">
+      Limpar
+    </button>
+    <span *ngIf="loading">carregando...</span>
+  </div>
+
+  <div *ngIf="addressSaved">
+    <h3>Endereço Criado:</h3>
+    <p>{{ address }}</p>
+    <p>
+      {{ number }}, {{ complement }}, {{ postalCode }}, {{ city }} -
+      {{ state }}, {{ country }}
+    </p>
+  </div>
+</div>

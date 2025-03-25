@@ -1,0 +1,62 @@
+<main  class="c-items">
+<div *ngFor="let client of data">
+
+    <div class="c-buttons">
+        <button class="btn btn-danger btn-sm" (click)="onExclude(client.id)">Excluir</button>
+    </div>
+
+    <p>
+      <span><b>First Name: </b></span>
+      <span>{{client.firstName}}</span>
+    </p>
+    <p>
+      <span><b>Last Name: </b></span>
+      <span>{{client.lastName}}</span>
+    </p>
+    <p>
+      <span><b>Email: </b></span>
+      <span>{{client.email}}</span>
+    </p>
+
+    <details>
+      <summary>Endereços</summary>
+      <div>
+        <div class="c-buttons">
+          <button class="btn btn-warning btn-sm" (click)="onCreateAddres(client)">Adicionar Endereço</button>
+
+        </div>
+        <div *ngFor="let address of client.addresses">
+          <p>
+            <span><b>Rua: </b></span>
+            <span>{{address.address}}</span>
+          </p>
+          <p>
+            <span><b>Número: </b></span>
+            <span>{{address.number}}</span>
+          </p>
+          <p>
+            <span><b>CEP: </b></span>
+            <span>{{address.zipCode}}</span>
+          </p>
+          <p>
+            <span><b>Estado: </b></span>
+            <span>{{address.state}}</span>
+          </p>
+
+        </div>
+      </div>
+
+    </details>
+
+  </div>
+
+
+
+</main>
+
+<div *ngIf="client" class="address">
+  <div>
+  <h5>Cliente: <b>{{client.firstName}} {{client.lastName}}</b></h5>
+  <app-create-address [clientId]="client.id"></app-create-address>
+</div>
+</div>

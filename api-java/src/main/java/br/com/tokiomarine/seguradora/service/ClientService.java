@@ -18,11 +18,11 @@ public class ClientService {
 		this.repository = repository;
 	}
 
-	public List<Client> listClients(){
+	public List<Client> list(){
 		return repository.findAll();
 	}
 
-	public Optional<Object> createClient(ClientCreateDTO dto) {
+	public Optional<Object> create(ClientCreateDTO dto) {
 		return repository.findByEmail(dto.getEmail()).map(resp -> {
 			return Optional.empty();
 		}).orElseGet(() -> {
@@ -35,7 +35,7 @@ public class ClientService {
 	}
 
 
-	public Optional<Client> updateClient(Client dto) {
+	public Optional<Client> update(Client dto) {
 		return repository.findById(dto.getId()).map(resp -> {
 			return Optional.ofNullable(repository.save(dto));
 		}).orElseGet(() -> {
@@ -43,7 +43,7 @@ public class ClientService {
 		});
 	}
 
-	public boolean deleteClient(Long id) {
+	public boolean delete(Long id) {
 	    if (repository.existsById(id)) {
 	        repository.deleteById(id);
 	        return true;

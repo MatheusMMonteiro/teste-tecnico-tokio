@@ -1,57 +1,33 @@
-# PROVA TESTE
+# Teste Técnico 🚀
 
-## Criar uma API rest utilizando JPA
+Projeto desenvolvido como parte de um teste técnico, utilizando Java com Spring Boot para a construção da API e Angular para o frontend. O objetivo do projeto é realizar o cadastro de usuários e realizar consultas de dados de endereços através da API do ViaCEP, utilizando Spring Cloud para integrar o serviço externo.
 
-OBS: a conexão do banco já esta configurada via H2.
+## Tecnologias Utilizadas 🛠️
 
-Para mapeamento das entidades verificar o arquivo (data.sql).
+- **Backend**: Java com Spring Boot (Versão 11)
+- **Frontend**: Angular
+- **WebService**: ViaCEP (consultas de endereços) 🌐
+- **Spring Cloud**: Para integração com WebService do ViaCEP ☁️
+- **Node.js**: Versão 8.x (recomendado usar o NVM para gerenciar as versões do Node.js)
 
-A API deverá conter as seguintes características:
+## Como Executar o Projeto 🚀
 
-1. CRUD de usuários
-2. CRUD dos endereços do usuário
+### Angular 🌱
+`nvm install 8.9`
 
-**Consumir um serviço rest**
+`npm i`
 
-Você devera consumir o seguinte serviço para retorna o endereço dado o CEP
+`npm run start`
 
-Url: https://api.brasilaberto.com/v1/zipcode/{cep}
+### Spring Boot ⚙️
 
-Exemplo de chamada
-```sh
-# Request
-$ curl  https://api.brasilaberto.com/v1/zipcode/01001000
-
-# Response
-{
-    "meta": {
-        "currentPage": 1,
-        "itemsPerPage": 1,
-        "totalOfItems": 1,
-        "totalOfPages": 1
-    },
-    "result": {
-        "street": "Praça da Sé",
-        "complement": "lado ímpar",
-        "district": "Sé",
-        "districtId": "1",
-        "city": "São Paulo",
-        "cityId": "1",
-        "ibgeId": "3550308",
-        "state": "São Paulo",
-        "stateIbgeId": null,
-        "stateShortname": "SP",
-        "zipcode": "01001000"
-    }
-}
-```
+1. Certifique-se de que a versão do Java utilizada é a **Java 11**.
 
 
-## Interface (Opcional)
+## Dificuldades encontradas ⚠️
+Durante o desenvolvimento, enfrentei o seguinte erro:
+`Table "CLIENTS" already exists; SQL statement` 🛑
 
-Criar uma interface consumindo os serviços desenvolvidos utilizando uma das tecnologias abaixo:
+O problema ocorreu ao tentar conectar o JPA com o arquivo data.sql, o que resultou em um conflito devido à tentativa de criar tabelas que já existiam no banco de dados.
 
-1. Angular
-2. Vue
-3. Thymeleaf
-
+Para contornar essa situação, optei por renomear as tabelas e criar uma nova entidade no banco de dados, a fim de garantir que o processo de persistência funcionasse corretamente(por hora).
